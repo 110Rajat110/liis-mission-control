@@ -1,0 +1,164 @@
+/* Global Reset and Typography */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Outfit:wght@400;600;800&display=swap');
+
+html,
+body,
+[class*="css"] {
+    font-family: 'Inter', sans-serif;
+    color: #E2E8F0;
+}
+
+/* Hide default Streamlit elements */
+#MainMenu {
+    visibility: hidden;
+}
+
+header {
+    visibility: hidden;
+}
+
+footer {
+    visibility: hidden;
+}
+
+.stDeployButton {
+    display: none;
+}
+
+/* App Background */
+.stApp {
+    background-color: #050810;
+    background-image:
+        radial-gradient(circle at 15% 50%, rgba(0, 229, 255, 0.03), transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(41, 121, 255, 0.03), transparent 25%);
+    background-attachment: fixed;
+}
+
+/* Glassmorphism Cards */
+div[data-testid="stVerticalBlock"]>div>div>div[data-testid="stVerticalBlock"] {
+    background: rgba(15, 23, 42, 0.6) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    border-radius: 16px !important;
+    padding: 24px !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+div[data-testid="stVerticalBlock"]>div>div>div[data-testid="stVerticalBlock"]:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 12px 48px 0 rgba(0, 229, 255, 0.1) !important;
+    border: 1px solid rgba(0, 229, 255, 0.2) !important;
+}
+
+/* Buttons */
+.stButton>button {
+    background: linear-gradient(135deg, rgba(0, 229, 255, 0.1), rgba(41, 121, 255, 0.1));
+    border: 1px solid rgba(0, 229, 255, 0.3) !important;
+    border-radius: 8px;
+    color: #00E5FF !important;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease !important;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.stButton>button:hover {
+    background: linear-gradient(135deg, rgba(0, 229, 255, 0.2), rgba(41, 121, 255, 0.2));
+    border-color: #00E5FF !important;
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+    transform: translateY(-1px);
+}
+
+.stButton>button:active {
+    transform: translateY(1px);
+}
+
+/* Metrics (Custom styling) */
+[data-testid="stMetricValue"] {
+    font-family: 'JetBrains Mono', monospace !important;
+    color: #FFFFFF !important;
+    font-size: 2rem !important;
+    font-weight: 700 !important;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+[data-testid="stMetricLabel"] {
+    font-family: 'Outfit', sans-serif !important;
+    color: #94A3B8 !important;
+    font-size: 0.9rem !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0B0E14;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1E293B;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #334155;
+}
+
+/* Sidebar */
+[data-testid="stSidebar"] {
+    background-color: rgba(11, 14, 20, 0.8) !important;
+    backdrop-filter: blur(20px) !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+[data-testid="stSidebar"] [data-testid="stVerticalBlock"] {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Typography Headings */
+h1,
+h2,
+h3 {
+    font-family: 'Outfit', sans-serif !important;
+    color: #FFFFFF !important;
+}
+
+h1 {
+    font-size: 2.5rem !important;
+    font-weight: 800 !important;
+    background: linear-gradient(to right, #FFFFFF, #94A3B8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.02em;
+}
+
+/* Custom fade in animation for elements */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stMarkdown,
+.stPlotlyChart,
+.stDataFrame {
+    animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
